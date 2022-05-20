@@ -1,0 +1,11 @@
+<div class="modal-header">
+        <h5 class="modal-title">Add a movie to your <%= @list.name %> list</h5>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.input :comment, placeholder: "Enter a comment about the movie" %>
+          <%= f.association :movie, prompt: "select a movie", input_html: {class: "select2"} %>
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>

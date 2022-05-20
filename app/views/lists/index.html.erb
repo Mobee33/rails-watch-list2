@@ -1,0 +1,10 @@
+
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.plex.tv/wp-content/uploads/2021/04/plex-splash-screen-04-30-21-new-1536x864.png);">
+  <div class="container">
+    <h1>Movie categories</h1>
+    <% @lists.each do |list| %>
+      <a class="btn btn-ghost" <%= link_to list.name, list_path(list) %></a>
+    <% end %>
+  </div>
+</div>

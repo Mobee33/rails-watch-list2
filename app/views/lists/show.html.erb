@@ -1,0 +1,22 @@
+<h2> <%= @list.name %> <a class="btn btn-outline-primary" <%= link_to("Bookmark a movie", new_list_bookmark_path(@list)) %></a></h2>
+
+<hr>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @list.movies.each do |movie| %>
+    <div class="col">
+      <div class="card">
+        <img src="<%= movie.poster_url %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= movie.title %></h5>
+          <p class="card-text"><%= movie.overview %></p>
+        </div>
+        <% movie.bookmarks.each do |bookmark|%>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><em>Comment:</em> <%= bookmark.comment %></li>
+            <a class="btn btn-outline-danger" <%= link_to "Delete Bookmark", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?"} %></a>
+          </ul>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
